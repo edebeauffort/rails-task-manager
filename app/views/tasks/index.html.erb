@@ -1,0 +1,20 @@
+<div class = "tasks">
+  <h1>Task list</h1>
+
+  <div = class = "task">
+  <% @tasks.each do |task| %>
+
+  <% if task.done %>
+    <h3>[X] <%= task.name %></h3>
+  <% else %>
+    <h3>[ ] <%=task.name %></h3>
+  <% end %>
+  <%= link_to "show the task", task_path(task) %>
+  <%= link_to "edit the task", edit_task_path(task) %>
+  <%= link_to "delete the task", task_path(task), method: :delete %>
+  <p> ----------------------------------------------------------------- </p>
+  <% end %>
+
+  </div>
+<%= link_to "Add a new task", new_task_path(@task) %>
+</div>
